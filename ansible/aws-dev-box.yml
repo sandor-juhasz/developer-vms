@@ -7,8 +7,10 @@
     - basic-utilities
     - docker
     - nodejs
+    - java-dev
+    - shell-scripting
     - aws-cli-v2
     - aws-sam-cli
     - aws-cdk
-    - shell-scripting
     - pycharm-ce
+    - intellij-idea

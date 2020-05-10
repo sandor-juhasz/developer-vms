@@ -1,0 +1,21 @@
+---
+
+- name: Downloading PyCharm
+  unarchive:
+    src: https://download.jetbrains.com/idea/ideaIC-2020.1.1.tar.gz
+    dest: /opt
+    remote_src: yes
+
+- name: Creating symlink
+  file:
+    src: /opt/pycharm-community-2020.1.1
+    dest: /opt/pycharm
+    state: link
+
+- name: Create desktop shortcut
+  copy:
+    src: jetbrains-idea-ce.desktop 
+    dest: /usr/share/applications/jetbrains-idea-ce.desktop
+    group: root
+    owner: root
+    mode: 0644

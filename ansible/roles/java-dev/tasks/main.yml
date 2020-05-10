@@ -1,0 +1,7 @@
+---
+
+- name: Installing JDK 8, Maven
+  apt:
+    pkg:
+      - openjdk-8-jdk
+      - maven
