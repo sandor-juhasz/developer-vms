@@ -1,0 +1,13 @@
+---
+
+- name: Installing packages common for shell script writing
+  apt:
+    name:
+      - jq
+      - shellcheck
+
+- name: Installing YQ
+  pip:
+    name:
+      - yq
+    executable: pip3 
