@@ -11,3 +11,11 @@
     src: /opt/pycharm-community-2020.1.1
     dest: /opt/pycharm
     state: link
+
+- name: Create desktop shortcut
+  copy:
+    src: jetbrains-pycharm-ce.desktop 
+    dest: /usr/share/applications/jetbrains-pycharm-ce.desktop
+    group: root
+    owner: root
+    mode: 0644
