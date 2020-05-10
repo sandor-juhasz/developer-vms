@@ -3,6 +3,7 @@
 - name: Install general Linux utilities
   apt:
     pkg:
+      - curl
       - emacs
       - git
       - htop
