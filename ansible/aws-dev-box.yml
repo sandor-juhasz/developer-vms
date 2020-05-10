@@ -4,10 +4,11 @@
   become: true
 
   roles:
-    - basic-utilities
-    - docker
-    - nodejs
-    - aws-cli-v2
-    - aws-sam-cli
-    - aws-cdk
-    - shell-scripting
+#    - basic-utilities
+#    - docker
+#    - nodejs
+#    - aws-cli-v2
+#    - aws-sam-cli
+#    - aws-cdk
+#    - shell-scripting
+    - pycharm-ce

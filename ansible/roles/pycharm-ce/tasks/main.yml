@@ -1,0 +1,13 @@
+---
+
+- name: Downloading PyCharm
+  unarchive:
+    src: https://download.jetbrains.com/python/pycharm-community-2020.1.1.tar.gz
+    dest: /opt
+    remote_src: yes
+
+- name: Creating symlink
+  file:
+    src: /opt/pycharm-community-2020.1.1
+    dest: /opt/pycharm
+    state: link
