@@ -6,4 +6,7 @@
   roles:
     - basic-utilities
     - docker
+    - nodejs
     - aws-cli2
+    - aws-sam-cli
+    - aws-cdk

@@ -9,4 +9,5 @@
       - htop
       - mc
       - tmux
+      - tree
       - zsh

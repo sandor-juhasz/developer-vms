@@ -1,0 +1,10 @@
+---
+
+#
+# TODO: Add code to install AWS CLI only if it has not been installed.
+#
+
+- name: Installing CDK
+  npm:
+    name: aws-cdk
+    global: yes

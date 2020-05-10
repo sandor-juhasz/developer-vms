@@ -1,0 +1,11 @@
+---
+
+#
+# TODO: Add code to install AWS CLI only if it has not been installed.
+#
+
+- name: Installin Node.JS and NPM
+  apt:
+    name:
+      - nodejs
+      - npm
