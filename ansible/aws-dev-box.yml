@@ -5,3 +5,4 @@
 
   roles:
     - basic-utilities
+    - aws-cli2

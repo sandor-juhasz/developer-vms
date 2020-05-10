@@ -1,2 +1,4 @@
 *.ova
 vm_build/packer_cache
+*~
+

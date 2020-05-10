@@ -1,0 +1,21 @@
+---
+
+#
+# TODO: Add code to install AWS CLI only if it has not been installed.
+#
+
+- name: Downloading AWS CLI 2
+  unarchive:
+    src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: Running AWS CLI 2 installer
+  shell: ./install
+  args:
+    chdir: /tmp/aws
+
+- name: Cleaning up installer files
+  file:
+    path: /tmp/aws/
+    state: absent
