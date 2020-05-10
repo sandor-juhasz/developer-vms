@@ -8,6 +8,7 @@
       - git
       - htop
       - mc
+      - python3-pip
       - tmux
       - tree
       - zsh

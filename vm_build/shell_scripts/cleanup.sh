@@ -5,4 +5,6 @@
 # Created by Sandor Juhasz, 2020
 ################################################################################
 
-echo "Nothing to do."
+echo "Removing cached .deb package files"
+sudo apt-get clean
+

@@ -1,9 +1,10 @@
 ---
 
-#
-# TODO: Add code to install AWS CLI only if it has not been installed.
-#
-
+- name: Install general Linux utilities
+  apt:
+    pkg:
+      - python3-pip
+      
 - name: Downloading AWS SAM CLI
   pip:
     name:

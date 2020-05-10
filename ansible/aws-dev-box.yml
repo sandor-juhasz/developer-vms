@@ -7,6 +7,6 @@
     - basic-utilities
     - docker
     - nodejs
-    - aws-cli2
+    - aws-cli-v2
     - aws-sam-cli
     - aws-cdk
