@@ -1,11 +1,13 @@
 ---
 
-- name: Install general Linux utilities
+- name: Installing Docker
   apt:
     pkg:
-      - emacs
-      - git
-      - htop
-      - mc
-      - tmux
-      - zsh
+      - docker.io
+
+- name: Add the developer user to the docker group.
+  user:
+    name: developer
+    shell: /bin/bash
+    groups: docker
+    append: yes
