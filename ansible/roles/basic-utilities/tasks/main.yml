@@ -1,0 +1,9 @@
+---
+
+- name: Install general Linux utilities
+  apt:
+    pkg:
+      - tmux
+      - mc
+      - zsh
+      - htop

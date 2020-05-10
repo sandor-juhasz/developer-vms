@@ -1,0 +1,36 @@
+{
+    "variables": {
+	"vm_name": ""
+    },
+    "builders": [
+	{
+	    "type": "virtualbox-ovf",
+	    "source_path": "base_vm/source.ova",
+	    "ssh_username": "developer",
+	    "ssh_password": "welcome",
+	    "shutdown_command": "sudo -S shutdown -P now",
+	    "format": "ova",
+	    "vm_name": "{{user `vm_name`}}"
+	}
+    ],
+    "provisioners": [
+        {
+	    "type": "shell",
+	    "scripts": [
+		"shell_scripts/install.sh"
+	    ]	    
+	},
+	{
+	    "type": "ansible-local",
+	    "playbook_dir": "../ansible",
+	    "playbook_file": "../ansible/{{user `vm_name`}}.yml",
+	    "staging_directory": "/opt/ansible-playbooks"
+	},
+        {
+	    "type": "shell",
+	    "scripts": [
+		"shell_scripts/cleanup.sh"
+	    ]	    
+	}	
+    ]
+}
