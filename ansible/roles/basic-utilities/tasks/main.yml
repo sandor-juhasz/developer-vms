@@ -3,7 +3,8 @@
 - name: Install general Linux utilities
   apt:
     pkg:
-      - tmux
-      - mc
-      - zsh
+      - git
       - htop
+      - mc
+      - tmux
+      - zsh
