@@ -9,6 +9,7 @@
       - htop
       - mc
       - python3-pip
+      - stow
       - tmux
       - tree
       - zsh
