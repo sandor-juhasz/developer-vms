@@ -1,0 +1,21 @@
+---
+
+- name: Installing prerequisites
+  apt:
+    pkg:
+      - xz-utils
+      - libxss1
+      - libappindicator1
+      - libindicator7
+
+- name: Installing latest Google Chrome
+  apt:
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+- name: Removing Firefox
+  apt:
+    pkg:
+      - firefox
+      - firefox-locale-en
+    state: absent
+   
