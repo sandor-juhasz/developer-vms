@@ -12,6 +12,7 @@
     - aws-cli-v2
     - aws-sam-cli
     - aws-cdk
+    - aws-misc-utils
     - pycharm-ce
     - intellij-idea
     - google-chrome

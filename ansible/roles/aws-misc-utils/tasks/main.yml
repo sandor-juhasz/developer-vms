@@ -1,0 +1,14 @@
+---
+
+- name: Install misc. AWS tools
+  pip:
+    name:
+      - cfn-lint
+    executable: pip3
+    
+- name: Install AWS Python libraries
+  pip:
+    name:
+      - boto
+      - boto3
+    executable: pip3
