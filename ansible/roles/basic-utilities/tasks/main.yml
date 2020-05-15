@@ -8,10 +8,13 @@
       - git
       - htop
       - mc
+      - powerline
       - python3-pip
+      - screenfetch
       - stow
       - tmux
       - tree
       - zsh
       - doublecmd-gtk
+      - xmlstarlet
       
