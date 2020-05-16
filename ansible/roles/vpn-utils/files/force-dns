@@ -1,0 +1,54 @@
+#!/bin/bash
+################################################################################
+# Force DNS settings for VPN use.
+#
+# Created by Sandor Juhasz, 2020
+#
+# This script is used to manually override the DNS settings obtained through
+# DHCP. If the VPN host resolution is bugous, this script can be used to
+# override it temporarily.
+#
+# Usage:
+#    force-dns configure 1.2.3.4 5.6.7.8   # IP addesses of forced DNS servers
+#    force-dns enable
+#    ... execute commands
+#    force-dns disable
+#
+################################################################################
+
+function enable() {
+    echo "Enabling forced DNS settings for VPN"
+    rm /etc/resolv.conf
+    cp /usr/local/etc/resolv.conf.vpn /etc/resolv.conf
+    systemctl restart systemd-resolved
+}
+
+function disable() {
+    echo "Disabling forced DNS settings for VPN"
+    rm /etc/resolv.conf
+    ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+    systemctl restart systemd-resolved
+}
+
+function configure() {
+    local primary_dns=$1
+    local secondary_dns=$2
+    echo "Configuring nameservers"
+    cat << EOF >/usr/local/etc/resolv.conf.vpn
+nameserver $primary_dns
+nameserver $secondary_dns
+EOF
+}
+
+
+if [[ "$1" == "enable" ]]; then
+   enable
+elif [[ "$1" == "disable" ]]; then
+   disable
+elif [[ "$1" == "configure" ]]; then
+   configure "$2" "$3"
+else
+   echo "Usage: force-dns enable"
+   echo "       force-dns disable"
+   echo "       force-dns configure <PRIMARY-DNS-IP> <SECONDARY-DNS-IP>"
+fi
