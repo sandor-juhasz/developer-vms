@@ -13,3 +13,7 @@ REM ############################################################################
 
 VBoxManage modifyvm "%2" --natdnshostresolver1 on
 
+REM ############################################################################
+REM # Enabling bidirectional clipboard use.
+REM ############################################################################
+VBoxManage modifyvm "%2" --clipboard-mode bidirectional
