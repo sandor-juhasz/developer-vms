@@ -16,4 +16,9 @@ VBoxManage modifyvm "%2" --natdnshostresolver1 on
 REM ############################################################################
 REM # Enabling bidirectional clipboard use.
 REM ############################################################################
-VBoxManage modifyvm "%2" --clipboard-mode bidirectional
+VBoxManage modifyvm "%2" --clipboard bidirectional
+
+REM ############################################################################
+REM # Mount C drive.
+REM ############################################################################
+VBoxManage.exe sharedfolder add "%2" --name C_DRIVE --hostpath C:\ --automount
