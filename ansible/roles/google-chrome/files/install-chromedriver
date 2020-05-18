@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if ! (which google-chrome >/dev/null); then
+    echo "The google-chrome executable was not found."
+    exit 1
+fi
+
+chrome_version_string=$(google-chrome --version)
+major_version=$(echo $chrome_version_string | sed -e 's/^Google Chrome \([0-9]\+\)\..*$/\1/')
+echo "Chrome major version: ${major_version}"
+
+latest_version=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${major_version}")
+echo "Chrome driver latest version: ${latest_version}"
+
+chromedriver_url="https://chromedriver.storage.googleapis.com/${latest_version}/chromedriver_linux64.zip"
+
+mkdir /tmp/chromedriver
+
+echo "Downloading chromedriver"
+curl -s -o /tmp/chromedriver/chromedriver_linux64.zip "${chromedriver_url}"
+cd /tmp/chromedriver
+
+echo "Extracting chromedriver"
+unzip chromedriver_linux64.zip
+
+echo "Installing chromedriver"
+mv chromedriver /usr/local/bin
+
+echo "Cleanup"
+cd ..
+rm -rf chromedriver
+
+

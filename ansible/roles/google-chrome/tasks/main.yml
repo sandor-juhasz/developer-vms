@@ -18,4 +18,14 @@
       - firefox
       - firefox-locale-en
     state: absent
-   
+
+- name: Installing install-chromedriver script
+  copy:
+    src: install-chromedriver
+    dest: /usr/local/bin/install-chromedriver
+    group: root
+    owner: root
+    mode: 0755
+
+- name: Installing Chrome driver
+  shell: install-chromedriver
