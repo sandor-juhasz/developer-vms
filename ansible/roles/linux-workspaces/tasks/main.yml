@@ -1,0 +1,29 @@
+---
+# 
+# Installs linux-workspaces and all necessary tools to customize
+# the workspaces settings, like dotfiles.
+#
+
+- name: Check out linux-workspaces from Git.
+  git:
+    repo: https://github.com/sandor-juhasz/linux-workspaces.git
+    dest: /tmp/linux-workspaces
+
+- name: Install linux-workspaces
+  command: ./install.sh
+  args:
+    chdir: /tmp/linux-workspaces
+
+- name: Remove source of linux-workspaces.
+  file:
+    state: absent
+    path: /tmp/linux-workspaces
+
+- name: Copy init files
+  copy:
+    src: all/
+    dest: /usr/local/share/linux-workspaces/init/all
+    mode: '0755'
+
+- name: Install dotfiles globally.
+  shell: curl https://raw.githubusercontent.com/sandor-juhasz/dotfiles/master/install-global.sh | bash -s
