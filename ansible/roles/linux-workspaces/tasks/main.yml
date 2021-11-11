@@ -4,6 +4,11 @@
 # the workspaces settings, like dotfiles.
 #
 
+- name: Installing zenity for init files
+  apt:
+    pkg:
+      - zenity
+
 - name: Check out linux-workspaces from Git.
   git:
     repo: https://github.com/sandor-juhasz/linux-workspaces.git
@@ -27,3 +32,5 @@
 
 - name: Install dotfiles globally.
   shell: curl https://raw.githubusercontent.com/sandor-juhasz/dotfiles/master/install-global.sh | bash -s
+  args:
+    warn: false
