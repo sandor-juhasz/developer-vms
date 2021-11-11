@@ -17,3 +17,5 @@
       - apt-transport-https
       - code
 
+- name: Appending version number to /opt/packages.list
+  shell: echo "Visual Studio Code $(code --version | head -1)" >>/opt/packages.list

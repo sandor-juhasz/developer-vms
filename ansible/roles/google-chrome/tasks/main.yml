@@ -29,3 +29,6 @@
 
 - name: Installing Chrome driver
   shell: install-chromedriver
+
+- name: Appending version number to /opt/packages.list
+  shell: google-chrome --version >>/opt/packages.list
