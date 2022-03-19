@@ -1,0 +1,21 @@
+
+- name: Add HashiCorp Apt signing key
+  ansible.builtin.apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+    state: present
+    keyring: /etc/apt/trusted.gpg.d/packages.hashicorp.gpg
+
+- name: Query Ubuntu release name
+  shell: "lsb_release -cs"
+  register: ubuntu_release
+
+- name: Add Hashicorp repository into sources list
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ubuntu_release.stdout }} main"
+    state: present
+
+- name: Installing Terraform
+  ansible.builtin.apt:
+    update-cache: yes
+    pkg:
+      - terraform
