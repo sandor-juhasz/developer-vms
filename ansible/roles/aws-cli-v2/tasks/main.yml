@@ -19,3 +19,8 @@
   file:
     path: /tmp/aws/
     state: absent
+
+- name: Installing Session Manager Plugin
+  apt:
+    deb: https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb
+  
