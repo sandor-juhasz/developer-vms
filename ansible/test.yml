@@ -1,0 +1,16 @@
+#
+# Test playbook to try out modifications.
+#
+# Invoke the playbook with the following command:
+#
+#    ansible-playbook test.yml
+#
+
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  roles:
+    - vscode
+    

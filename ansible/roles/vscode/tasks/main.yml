@@ -10,6 +10,11 @@
     state: present
     keyring: /etc/apt/trusted.gpg.d/packages.microsoft.gpg
 
+- name: Add Microsoft repository to the sources list
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main"
+    state: present
+
 - name: Installing Visual Studio Code
   apt:
     update-cache: yes
